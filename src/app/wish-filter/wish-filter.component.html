@@ -1,0 +1,13 @@
+<div class="col-sm-2">
+  <select
+    name="filter"
+    id="filter"
+    class="form-select"
+    [(ngModel)]="listFilter"
+    (ngModelChange)="changeFilter()"
+  >
+    <option value="0">All</option>
+    <option value="1">Unfulfilled</option>
+    <option value="2">Fulfilled</option>
+  </select>
+</div>
