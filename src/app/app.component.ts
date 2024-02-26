@@ -17,4 +17,8 @@ export class AppComponent {
     new WishItem('Start a company'),
   ];
   title = 'wishlist';
+
+  toggleItem(item: WishItem) {
+    item.isComplete = !item.isComplete;
+  }
 }

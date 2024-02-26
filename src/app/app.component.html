@@ -13,6 +13,7 @@
             class="checkbox"
             [checked]="item.isComplete"
             [attr.data-index]="ii"
+            (change)="toggleItem(item)"
           />
           {{ item.wishText }}
         </div>
