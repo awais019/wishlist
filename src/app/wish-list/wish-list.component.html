@@ -4,18 +4,10 @@
 
 <ng-template #showItems>
   <ul class="wish-list" *ngIf="wishes.length > 0">
-    <li *ngFor="let wish of wishes; index as ii">
-      <div class="form-check">
-        <label class="form-check-label"></label>
-        <input
-          type="checkbox"
-          class="checkbox"
-          [checked]="wish.isComplete"
-          [attr.data-index]="ii"
-          (change)="toggleItem(wish)"
-        />
-        {{ wish.wishText }}
-      </div>
-    </li>
+    <app-wish-list-item
+      *ngFor="let wish of wishes"
+      [wishText]="wish.wishText"
+      [(fullFilled)]="wish.isComplete"
+    />
   </ul>
 </ng-template>

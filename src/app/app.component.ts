@@ -26,8 +26,6 @@ export class AppComponent {
     new WishItem('Start a company'),
   ];
 
-  listFilter = '0';
-
   filter: any = () => {};
 
   title = 'wishlist';
