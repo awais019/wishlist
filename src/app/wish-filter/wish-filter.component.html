@@ -3,8 +3,8 @@
     name="filter"
     id="filter"
     class="form-select"
-    [(ngModel)]="listFilter"
-    (ngModelChange)="changeFilter()"
+    [(ngModel)]="filter"
+    (ngModelChange)="updateFilter($event)"
   >
     <option value="0">All</option>
     <option value="1">Unfulfilled</option>

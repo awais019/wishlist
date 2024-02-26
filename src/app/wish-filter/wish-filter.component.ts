@@ -17,14 +17,16 @@ const filters = [
 })
 export class WishFilterComponent implements OnInit {
   ngOnInit(): void {
-    this.filter.emit(filters[0]);
+    this.updateFilter('0');
   }
 
-  @Output() filter = new EventEmitter<Function>();
+  @Input() filter: any;
+  @Output() filterChange = new EventEmitter<any>();
 
   listFilter: string = '0';
 
-  changeFilter() {
-    this.filter.emit(filters[parseInt(this.listFilter)]);
+  updateFilter(value: string) {
+    this.filter = filters[parseInt(value)];
+    this.filterChange.emit(this.filter);
   }
 }
