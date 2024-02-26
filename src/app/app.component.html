@@ -1,10 +1,16 @@
 <div class="container">
-  <ul class="wish-list">
-    <li *ngFor="let item of items">
-      <div class="form-check">
-        <label class="form-check-label"></label>
-        <input type="checkbox" class="checkbox" /> {{ item.wishText }}
-      </div>
-    </li>
-  </ul>
+  <div *ngIf="items.length == 0; else showItems">
+    There are no wishes to display.
+  </div>
+
+  <ng-template #showItems>
+    <ul class="wish-list" *ngIf="items.length > 0">
+      <li *ngFor="let item of items">
+        <div class="form-check">
+          <label class="form-check-label"></label>
+          <input type="checkbox" class="checkbox" /> {{ item.wishText }}
+        </div>
+      </li>
+    </ul>
+  </ng-template>
 </div>
