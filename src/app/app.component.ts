@@ -4,6 +4,12 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { WishItem } from './shared/models/wishItem';
 
+const filters = [
+  (item: WishItem) => item,
+  (item: WishItem) => !item.isComplete,
+  (item: WishItem) => item.isComplete,
+];
+
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -23,7 +29,9 @@ export class AppComponent {
 
   title = 'wishlist';
 
-  visibleItems: WishItem[] = this.items;
+  get visibleItems(): WishItem[] {
+    return this.items.filter(filters[parseInt(this.listFilter)]);
+  }
 
   addNewWish() {
     this.items.push(new WishItem(this.newWishText));
@@ -32,15 +40,5 @@ export class AppComponent {
 
   toggleItem(item: WishItem) {
     item.isComplete = !item.isComplete;
-  }
-
-  updateFilter(value: string) {
-    this.listFilter = value;
-    this.visibleItems =
-      this.listFilter == '0'
-        ? this.items
-        : this.items.filter(
-            (item) => item.isComplete != (this.listFilter == '1')
-          );
   }
 }
