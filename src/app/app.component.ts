@@ -12,9 +12,18 @@ import { WishItem } from './shared/models/wishItem';
   styleUrl: './app.component.css',
 })
 export class AppComponent {
-  items: WishItem[] = [];
-  title = 'wishlist';
+  items: WishItem[] = [
+    new WishItem('Learn Angular 2'),
+    new WishItem('Get a job', true),
+    new WishItem('Start a company'),
+  ];
+
+  listFilter = '0';
   newWishText = '';
+
+  title = 'wishlist';
+
+  visibleItems: WishItem[] = this.items;
 
   addNewWish() {
     this.items.push(new WishItem(this.newWishText));
@@ -23,5 +32,15 @@ export class AppComponent {
 
   toggleItem(item: WishItem) {
     item.isComplete = !item.isComplete;
+  }
+
+  updateFilter(value: string) {
+    this.listFilter = value;
+    this.visibleItems =
+      this.listFilter == '0'
+        ? this.items
+        : this.items.filter(
+            (item) => item.isComplete != (this.listFilter == '1')
+          );
   }
 }
