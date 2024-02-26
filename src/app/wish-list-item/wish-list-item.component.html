@@ -1,12 +1,13 @@
 <li>
   <div class="form-check">
-    <label class="form-check-label"></label>
-    <input
-      type="checkbox"
-      class="checkbox"
-      [checked]="fullFilled"
-      (change)="toggleFullFilled()"
-    />
-    {{ wishText }}
+    <label class="form-check-label" [ngClass]="cssClasses">
+      <input
+        type="checkbox"
+        class="checkbox"
+        [checked]="fullFilled"
+        (change)="toggleFullFilled()"
+      />
+      {{ wishText }}
+    </label>
   </div>
 </li>
