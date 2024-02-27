@@ -1,0 +1,41 @@
+<form class="container p-5">
+  <div class="mb-3">
+    <label for="name" class="form-label">Your Name</label>
+    <input
+      type="text"
+      name="name"
+      id="name"
+      class="form-control"
+      [formControl]="senderNameControl"
+    />
+  </div>
+  <div class="mb-3">
+    <label for="email" class="form-label">Your email address</label>
+    <input
+      type="email"
+      name="email"
+      id="email"
+      class="form-control"
+      [formControl]="senderEmailControl"
+    />
+  </div>
+  <div class="mb-3">
+    <label for="message" class="form-label">Message</label>
+    <textarea
+      name="message"
+      id="message"
+      rows="3"
+      class="form-control"
+      [formControl]="senderMessageControl"
+    ></textarea>
+  </div>
+  <div class="mb-3">
+    <button
+      type="submit"
+      class="btn btn-primary"
+      (click)="$event.preventDefault(); submitForm()"
+    >
+      Send Message
+    </button>
+  </div>
+</form>

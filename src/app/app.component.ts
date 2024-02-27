@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { WishModule } from './wish/wish.module';
+import { ContactModule } from './contact/contact.module';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [WishModule],
+  imports: [WishModule, ContactModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
