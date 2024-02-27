@@ -1,22 +1,14 @@
-import { Component, NgModule, OnInit } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { WishItem } from './shared/models/wishItem';
-import { WishListComponent } from './wish-list/wish-list.component';
-import { AddWishFormComponent } from './add-wish-form/add-wish-form.component';
-import { WishFilterComponent } from './wish-filter/wish-filter.component';
+import { Component, OnInit } from '@angular/core';
+import { WishModule } from './wish/wish.module';
 
 import { EventService } from './shared/services/EventService';
-import { WishService } from './wish.service';
+import { WishService } from './wish/wish.service';
+import { WishItem } from './wish/models/wishItem';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [
-    RouterOutlet,
-    WishListComponent,
-    AddWishFormComponent,
-    WishFilterComponent,
-  ],
+  imports: [WishModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
