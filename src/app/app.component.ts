@@ -24,9 +24,14 @@ export class AppComponent implements OnInit {
   items: WishItem[] = [];
 
   ngOnInit(): void {
-    this.wishSerice.getWishes().subscribe((data: any) => {
-      this.items = data;
-    });
+    this.wishSerice.getWishes().subscribe(
+      (data: any) => {
+        this.items = data;
+      },
+      (error: Error) => {
+        alert(error.message);
+      }
+    );
   }
 
   constructor(events: EventService, private wishSerice: WishService) {
