@@ -28,8 +28,8 @@ export class AppComponent {
 
   constructor() {
     events.listen<WishItem>('removeWish', (wish: WishItem) => {
-      // TODO: remove wish from items
-      console.log('removeWish', wish);
+      const index = this.items.indexOf(wish);
+      this.items.splice(index, 1);
     });
   }
 

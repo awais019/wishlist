@@ -4,10 +4,6 @@
 
 <ng-template #showItems>
   <ul class="wish-list" *ngIf="wishes.length > 0">
-    <app-wish-list-item
-      *ngFor="let wish of wishes"
-      [wishText]="wish.wishText"
-      [(fullFilled)]="wish.isComplete"
-    />
+    <app-wish-list-item *ngFor="let wish of wishes" [wish]="wish" />
   </ul>
 </ng-template>
