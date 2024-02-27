@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
 import { WishItem } from './shared/models/wishItem';
 import { WishListComponent } from './wish-list/wish-list.component';
 import { AddWishFormComponent } from './add-wish-form/add-wish-form.component';
 import { WishFilterComponent } from './wish-filter/wish-filter.component';
+
+import events from './shared/services/EventService';
 
 @Component({
   selector: 'app-root',
@@ -26,7 +26,12 @@ export class AppComponent {
     new WishItem('Start a company'),
   ];
 
-  filter: any = () => {};
+  constructor() {
+    events.listen<WishItem>('removeWish', (wish: WishItem) => {
+      // TODO: remove wish from items
+      console.log('removeWish', wish);
+    });
+  }
 
-  title = 'wishlist';
+  filter: any = () => {};
 }

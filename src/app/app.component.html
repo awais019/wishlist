@@ -4,6 +4,8 @@
   <div class="row mt-3"><app-wish-filter [(filter)]="filter" /></div>
 
   <div class="row mt-3">
-    <app-wish-list [wishes]="items.filter(filter)" />
+    <div class="col-sm-4">
+      <app-wish-list [wishes]="items.filter(filter)" />
+    </div>
   </div>
 </div>
