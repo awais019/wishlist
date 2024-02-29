@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { WishModule } from './wish/wish.module';
-import { ContactModule } from './contact/contact.module';
+import { Router, RouterOutlet } from '@angular/router';
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -9,4 +7,10 @@ import { ContactModule } from './contact/contact.module';
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
-export class AppComponent {}
+export class AppComponent {
+  constructor(private router: Router) {}
+
+  goToContact() {
+    this.router.navigate(['contact']);
+  }
+}

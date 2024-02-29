@@ -1,1 +1,11 @@
-<router-outlet />
+<header>
+  <nav>
+    <a routerLink="">Home</a>
+    <a href="#" (click)="$event.preventDefault(); goToContact()" class="m-3"
+      >Contact</a
+    >
+  </nav>
+</header>
+<main>
+  <router-outlet />
+</main>
